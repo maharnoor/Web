@@ -8,5 +8,7 @@ const printDetails = (name, number) => {
       console.log(`${number} * ${i} = ${number * i}`);
     }
   
+
+    
 }
   
