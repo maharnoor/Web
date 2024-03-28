@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assigment</title>
+</head>
+<body>
+
+
+<div id="container">
+    <h2 id="author"></h2>
+    <p id="quote"></p>
+</div>
+
+<script>
+  
+    const Quote = async (index) => {
+         {
+            const author = await fetch('https://dummyjson.com/quotes?limit=100');
+            const data = await author.json();
+            const finaldata =data.quotes;
+            console.log(finaldata);
+            if (finaldata[index]) {
+                const author = finaldata[index].author || 'Author';
+                console.log();
+                const quote = finaldata[index].quote || 'quote ';
+                document.getElementById('author').textContent = author;
+                document.getElementById('quote').textContent = quote;
+            } else {
+                console.log('index');
+            }
+        }  
+    };
+  
+Quote(5)
+</script>
+
+</body>
+</html>

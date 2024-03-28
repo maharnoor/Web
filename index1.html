@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<div id="container">
+    <h2 id="name"></h2>
+    <p id="ingredients"></p>
+    <p id="instructions"></p>
+</div>
+
+<script>
+  
+    const ingredients = async (index) => {
+         {
+            const author = await fetch('https://dummyjson.com/recipes');
+            const data = await author.json();
+            const finaldata = await data.recipes;
+            
+            console.log(finaldata);
+            if (finaldata[index]) {
+                const name = finaldata[index].name || 'name';
+                const ingredients = finaldata[index].ingredients || 'ingredients';
+                const instructions = finaldata[index].instructions || 'instructions';
+                document.getElementById('name').textContent = name;
+                document.getElementById('ingredients').textContent = ingredients;
+                document.getElementById('instructions').textContent = instructions;
+            } else {
+                console.log('index');
+            }
+        }  
+    };
+  
+ingredients(3)
+</script>
+</body>
+</html>
