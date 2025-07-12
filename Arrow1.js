@@ -11,5 +11,5 @@ const b=4
 const sum =(a,b)=>{
   return a+b
 }
-// sum(a,b)
+sum(a,b)
 showtable(sum)
